@@ -33,7 +33,7 @@ formula compared with modified F75 formula.
 How do children with malnutrition receiving the
 standard F75 formula and those receiving the
 modified F75 formula differ in patient outcomes
-(weight at stabilization and days to stabilization)?
+(weight at stabilization and days to stabilization)????
 
 # Methods
 
