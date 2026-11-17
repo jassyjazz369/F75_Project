@@ -1,0 +1,75 @@
+
+---
+title: "DATA 550: F75 Formula Analysis"
+author: "Jasmine Robinson, Sharifa Fatao, Odoba Okwuosa, Jamila Taffe"
+output: html_document
+params:
+  sex: "all"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+
+configuration <- config::get(
+  config = params$sex,
+  file = "config.yml"
+)
+
+selected_sex <- configuration$sex
+```
+
+# Introduction
+
+This project examines differences in patient
+outcomes among children receiving standard F75
+formula compared with modified F75 formula.
+
+# Research Question
+
+How do children with malnutrition receiving the
+standard F75 formula and those receiving the
+modified F75 formula differ in patient outcomes
+(weight at stabilization and days to stabilization)?
+
+# Methods
+
+Dataset: F75 dataset
+
+Report configuration:
+
+```{r configuration}
+cat("Selected population:", selected_sex)
+```
+
+# Patient Demographics
+
+Analysis by Sharifa Fatao.
+
+Code and results will be added after her pull
+request is approved.
+
+# Weight Outcomes
+
+Analysis by Odoba Okwuosa.
+
+Code and results will be added after his pull
+request is approved.
+
+# Days to Stabilization
+
+Analysis by Jamila Taffe.
+
+Code and results will be added after her pull
+request is approved.
+
+# Discussion
+
+To be completed after analyzing the results.
+
+# Conclusion
+
+To be completed after analyzing the results.
