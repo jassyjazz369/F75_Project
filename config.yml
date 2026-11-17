@@ -1,0 +1,11 @@
+default:
+  sex: "all"
+
+all:
+  sex: "all"
+
+male:
+  sex: "male"
+
+female:
+  sex: "female"
