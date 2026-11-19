@@ -64,7 +64,7 @@ figure1 <- ggplot(
   theme_minimal() +
   theme(legend.position = "none")
 
-ggsave(here::here("output/figure/figure1_boxplot.png"),
+ggsave(here::here("output/figures/figure1_boxplot.png"),
   figure1,
   width = 8,
   height = 6,
@@ -106,7 +106,7 @@ figure2 <- ggplot(
   theme_minimal() +
   theme(legend.position = "none")
 
-ggsave(here::here("output/figure/figure2_mean_days.png"),
+ggsave(here::here("output/figures/figure2_mean_days.png"),
   figure2,
   width = 8,
   height = 6,
@@ -150,7 +150,7 @@ figure3 <- ggplot(
   theme_minimal()
 
 # Save Figure 3
-ggsave(here::here("output/figure/figure3_percentage_stabilized.png"),
+ggsave(here::here("output/figures/figure3_percentage_stabilized.png"),
        figure3, width = 9, height = 6, dpi = 300)
 
 # ============================================================
