@@ -24,52 +24,85 @@ selected_sex <- configuration$sex
 
 # Introduction
 
-This project examines differences in patient
-outcomes among children receiving standard F75
-formula compared with modified F75 formula.
+F75 is a formula used to help children with severe malnutrition during the stabilization stage of treatment. In this project, we compare children who received standard F75 with those who received modified F75. We focus on patient demographics, weight measurements, and the number of days it took children to stabilize.
 
 # Research Question
 
-How do children with malnutrition receiving the
-standard F75 formula and those receiving the
-modified F75 formula differ in patient outcomes
-(weight at stabilization and days to stabilization)????
+How do children with malnutrition receiving the standard F75 formula and those receiving the modified F75 formula differ in patient outcomes (weight at stabilization and days to stabilization)?
 
-# Methods
+# Data and Methods
 
-Dataset: F75 dataset
+Our dataset includes 513 children: 255 received standard F75 and 258 received modified F75. Sharifa analyzed patient demographics, Odoba analyzed weight measurements, and Jamila analyzed days to stabilization. We used tables and figures saved by their R scripts to compare the two groups.
 
-Report configuration:
-
-```{r configuration}
-cat("Selected population:", selected_sex)
-```
+For the weight analysis, we used the measurement labeled as stabilization weight in the team's script, although the meaning of `weight1` still needs to be confirmed. For stabilization time, values of `999` were not treated as actual days. We also need to confirm what that value means in the dataset.
 
 # Patient Demographics
 
-Analysis by Sharifa Fatao.
+## Table 1. Patient Characteristics by Treatment Group
 
-Code and results will be added after her pull
-request is approved.
+```{r demographics-table}
+gtsummary::as_gt(readRDS("output/tables/table1_demographics.rds"))
+```
+
+Table 1 compares age and sex between the two treatment groups. The mean age was about 22.03 months for standard F75 and 21.03 months for modified F75. The average ages were close, which is useful to know when comparing the groups' outcomes.
+
+## Figure 1. Age Distribution by Treatment Group
+
+```{r age-figure, fig.cap="Figure 1. Age distribution by treatment group"}
+knitr::include_graphics("output/figures/figure1_age_by_arm.png")
+```
+
+Figure 1 shows how children's ages were spread out in each group. The age distributions look similar overall, although there are some older children in both groups. This helps us understand the ages of the children included in the study.
 
 # Weight Outcomes
 
-Analysis by Odoba Okwuosa.
+## Figure 2. Mean Weight at Baseline and Stabilization
 
-Code and results will be added after his pull
-request is approved.
+```{r weight-bar, fig.cap="Figure 2. Mean weight by treatment group"}
+knitr::include_graphics("output/figures/weight_bar.png")
+```
+
+Figure 2 compares average weight at baseline and at the later measurement. Standard F75 had an average baseline weight of 7.08 kg and a later average of 7.05 kg. Modified F75 had averages of 7.01 kg and 6.92 kg. The standard group was slightly higher at both points, but some later weight measurements were missing.
+
+## Figure 3. Mean Weight Across Measurement Times
+
+```{r weight-line, fig.cap="Figure 3. Mean weight across measurement times"}
+knitr::include_graphics("output/figures/weight_line.png")
+```
+
+Figure 3 shows the same weight averages as a line graph. Both groups had slightly lower averages at the later measurement. Since not every child had a later weight recorded, the graph does not necessarily show that individual children lost weight.
 
 # Days to Stabilization
 
-Analysis by Jamila Taffe.
+## Figure 4. Distribution of Days to Stabilization
 
-Code and results will be added after her pull
-request is approved.
+```{r stabilization-boxplot, fig.cap="Figure 4. Days to stabilization by treatment group"}
+knitr::include_graphics("output/figures/figure1_boxplot.png")
+```
+
+
+Figure 4 (Days to stabilization by treatment arm): The boxplot shows that children in both the Standard F75 and Modified F75 groups had similar times to stabilization. The median stabilization time was approximately 3 days for both groups, with most children stabilizing within 2–4 days. However, the Standard F75 group had more extreme outliers, including children who took over 20 days to stabilize, compared with a maximum of approximately 14 days in the Modified F75 group.
+
+## Figure 5. Average Days to Stabilization
+
+```{r stabilization-mean, fig.cap="Figure 5. Average days to stabilization"}
+knitr::include_graphics("output/figures/figure2_mean_days.png")
+```
+
+Figure 5 (Average days to stabilization): The bar chart shows that children receiving Modified F75 had a slightly lower average time to stabilization (approximately 3.5 days) compared with children receiving Standard F75 (approximately 3.7 days). There is a small difference between the two groups, but the results overall suggest that they both had relatively similar outcomes.
+
+## Figure 6. Percentage Stabilized by Days 3, 5, and 7
+
+```{r stabilization-percentages, fig.cap="Figure 6. Percentage stabilized by days 3, 5, and 7"}
+knitr::include_graphics("output/figures/figure3_percentage_stabilized.png")
+```
+
+Figure 6 (Percentage of children stabilized by days 3, 5 and 7): The percentage of stabilized children in both arms was relatively similar for days 3, 5 and 7. There is a noticeable uptake of stabilized patients for the Modified F75 by day 7 in comparison to the Standard F75. This, however, is not very significant as the percentages remain similar throughout.
 
 # Discussion
 
-To be completed after analyzing the results.
+Overall, the two treatment groups had similar ages and fairly small differences in weight and stabilization time. The standard group had slightly higher average weight measurements, while the modified group had a slightly shorter average stabilization time. Both groups had a median stabilization time of 3 days. Missing weight measurements and the meaning of the `999` code are important limitations when interpreting these results.
 
 # Conclusion
 
-To be completed after analyzing the results.
+Our analysis found some differences between children receiving standard and modified F75, but the differences were generally small. The modified F75 group had a slightly shorter average stabilization time, while both groups had the same median. Based on these descriptive results alone, we cannot say that one formula works better than the other.
