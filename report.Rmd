@@ -44,7 +44,7 @@ For the weight analysis, we used the measurement labeled as stabilization weight
 gtsummary::as_gt(readRDS("output/tables/table1_demographics.rds"))
 ```
 
-Table 1 compares age and sex between the two treatment groups. The mean age was about 22.03 months for standard F75 and 21.03 months for modified F75. The average ages were close, which is useful to know when comparing the groups' outcomes.
+Table 1 shows that the two groups were alike in both age and sex.The median age was 16 months in the Modified group and 17 months in the Standard group, and this difference was not statistically significant (p = 0.8). The two groups also had a similar mix of girls and boys. In the Modified group, 48% of the children were female and 52% were male, while in the Standard group, 47% were female and 53% were male (p = 0.7). Because both p-values are well above 0.05, the differences between the groups are small enough to be explained by chance. This means the groups were closely matched in both age and sex.
 
 ## Figure 1. Age Distribution by Treatment Group
 
@@ -52,7 +52,7 @@ Table 1 compares age and sex between the two treatment groups. The mean age was 
 knitr::include_graphics("output/figures/figure1_age_by_arm.png")
 ```
 
-Figure 1 shows how children's ages were spread out in each group. The age distributions look similar overall, although there are some older children in both groups. This helps us understand the ages of the children included in the study.
+Figure 1 displays the age distribution for each arm as a boxplot. The median age was 16 months in the Modified F75 arm and 17 months in the Standard F75 arm, and in both groups the middle half of participants fell between roughly 10 and 26 months of age. The distributions are right-skewed, meaning most children were young but a minority were considerably older. These older participants appear as outliers, extending to about 86 months in the Standard arm and about 101 months in the Modified arm. Despite these extreme values, the overall shape and spread of the two distributions are strikingly similar.
 
 # Weight Outcomes
 
