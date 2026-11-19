@@ -1,9 +1,11 @@
+
+
 library(tidyverse)
 library(gtsummary)
 
-# Change this to "Male" or "Female" for the other two versions
 sex_group <- "all"
 
+# 1. Load and prepare data
 f75 <- read.csv("data/f75_interim.csv")
 f75 <- f75 |>
   filter(!is.na(arm)) |>
@@ -12,13 +14,22 @@ if (sex_group != "all") {
   f75 <- f75 |> filter(sex == sex_group)
 }
 
-# Table 1: age and sex by treatment arm
-f75 |>
+# 2. Create output folders
+dir.create("output/table", recursive = TRUE, showWarnings = FALSE)
+dir.create("output/figure", recursive = TRUE, showWarnings = FALSE)
+
+# 3. Table 1: age and sex by treatment arm
+table1 <- f75 |>
   select(arm, agemons, sex) |>
   tbl_summary(by = arm) |>
   add_p()
 
-# Figure 1: age by treatment arm
-ggplot(f75, aes(x = arm, y = agemons)) +
+saveRDS(table1, "output/table/table1_demographics.rds")
+
+# 4. Figure 1: age by treatment arm
+figure1 <- ggplot(f75, aes(x = arm, y = agemons, fill = arm)) +
   geom_boxplot() +
   labs(x = "Treatment arm", y = "Age (months)")
+
+ggsave("output/figure/figure1_age_by_arm.png",
+       figure1, width = 9, height = 6, dpi = 300)
