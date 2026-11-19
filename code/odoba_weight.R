@@ -4,7 +4,7 @@ here::i_am(
 
 # Read in dataset
 f75 <- read.csv(
-  here::here("f75_interim.csv")
+  here::here("data/f75_interim.csv")
 )
 
 library(tidyverse)
@@ -17,7 +17,7 @@ f75_weight <- f75 %>%
                             labels = c("Baseline", "Stabilization")))
 
 # Save weight Dataset
-saveRDS(f75_weight, here::here("f75_weight.RDS"))
+saveRDS(f75_weight, here::here("data/f75_weight.RDS"))
 
 # Bar plot looking at mean baseline weight pre and at stabilization
 weight_bar <- ggplot(f75_weight, aes(x = arm, y = wt, fill = timepoint)) +
@@ -27,7 +27,7 @@ title = "Mean weight at baseline and stabilization by Treatment arm") +
   theme_minimal(base_size = 13)
 
 # Save plot
-ggsave(here::here("output/weight_bar.png"), plot = weight_bar, width = 8, height = 5, units = "in")
+ggsave(here::here("output/figures/weight_bar.png"), plot = weight_bar, width = 8, height = 5, units = "in")
 
 
 # Line graph looking at mean baseline weight pre and at stabilization
@@ -40,4 +40,4 @@ weight_line <- ggplot(f75_weight, aes(x = timepoint, y = wt,
   theme_minimal(base_size = 13)
 
 # Save plotme
-ggsave(here::here("output/weight_line.png"), plot = weight_line, width = 8, height = 5, units = "in")
+ggsave(here::here("output/figures/weight_line.png"), plot = weight_line, width = 8, height = 5, units = "in")
